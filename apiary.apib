@@ -17,11 +17,23 @@ By **Entries API** you can access entries individually or by title.
 # Gist Fox API Root [/]
 Gist Fox API entry point.
 
-## Entries Collection [/entries?t=]
+## Entries Collection [/entries{?t}{?page}{?mode}{?order}]
 ### List all entries [GET]
 
 + Parameters
-    + t (string) ... Title
+    + t (string,`wondrous`) ... Title
+    + page (string, optional, `1`) ... Page
+    + mode (string, optional, `today`) ... Visualization mode
+             
+            + Values
+                  + `today` 
+                  + `yesterday` 
+                  + `only_friends` 
+                  
+    + order (string, optional, `today`) ... Order mode
+            + Values
+                  + `newest` 
+                  + `best`
     
 + Response 200 (application/json)
 
