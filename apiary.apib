@@ -3,6 +3,14 @@ FORMAT: 1A
 # Instela API
 Instela API makes accessible *almost* every method used in Instela.
 
+### Authentication
+
+All the read-only endpoints can be accessed without authentication. But to make modification on the resources, an OAuth 2.0 access token should be provided.
+
+### Return codes
+
+All the methods returns appropiate HTTP return codes according to the result. Please check generic HTTP Status Codes at: https://github.com/thehivecluster/instela-api/blob/master/status-codes.md
+
 # Group Entries
 By **Entries API** you can access entries individually or by title.
 
