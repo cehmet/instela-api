@@ -2,7 +2,7 @@ FORMAT: 1A
 HOST: https://instela.com/api/v2
 
 # Instela API
-Instela API makes accessible *almost* every method used in Instela.
+Instela API makes accessible *almost* every method used in Instela web site.
 
 ### Authentication
 
@@ -11,6 +11,16 @@ All the read-only endpoints can be accessed without authentication. But to make 
 ### Return codes
 
 All the methods returns appropiate HTTP return codes according to the result. Please check generic HTTP Status Codes at: https://github.com/thehivecluster/instela-api/blob/master/status-codes.md
+
+### HTTP caching
+
+We strongly believe that especially in the mobile era it is extremely important to use bandwidth effeciently. Due to its nature, most of API results of instela is not frequently refreshed. In order to take the advantage of HTTP caching, thus, in every response we send an ***Etag*** header based on the content to be returned. If ***If-None-Match*** request header including a previously taken ***Etag*** value exists in the response header we return only ***HTTP 304 Not Modified*** status code without any content.
+
+Many popular mobile REST frameworks like [RestKit](https://github.com/RestKit/RestKit) on iOS supports HTTP caching out of the box. We strongly encourage our users to activate this support to save bandwidth for both parties.
+
+### Usage limits
+
+Currently we do not apply any types of limits to this API's usage.
 
 # Group Entries
 By **Entries API** you can access entries individually or by title, their votes, favourites. Also using these endpoint you can modify and delete entries and its related objects like votes and favourites.
@@ -355,11 +365,8 @@ A single Entry object with all its details
         
 + Response 204
 
-# Group Votes
-By **Votes API** you can access votes of an entry, give and undo vote to it.
-
 ## Votes [/entries/{id}/votes]
-This endpoint can be used for listing (if the authenticated user is authorized to see), voting and undoing votes of an Entry.
+**Votes API** endpoint can be used for listing (if the authenticated user is authorized to see), voting and undoing votes of an Entry.
 
 ### List all votes [GET]
 + Response 200 (application/json)
@@ -376,11 +383,9 @@ This endpoint can be used for listing (if the authenticated user is authorized t
 
 + Response 204 (application/json)
 
-# Group Favourites
-By **Favourites API** you can see how has a specific entry on his/her favourite list, add that entry to the authenticated user's favourite list or remove it from the list.
 
 ## Favourites [/entries/{id}/favourites]
-This endpoint can be used for listing who favourite an entry and add/remove that entry from the authenticated user.
+By **Favourites API** you can see how has a specific entry on his/her favourite list, add that entry to the authenticated user's favourite list or remove it from the list.
 
 ### List all users [GET]
 + Response 200 (application/json)
