@@ -4,6 +4,8 @@ HOST: https://instela.com/api/v2
 # Instela API
 Instela API makes accessible *almost* every method used in Instela web site.
 
+**This documentation is incomplete, under development and subject to changes. For further information please contact with cagatay@thehivecluster.com**
+
 ### Authentication
 
 All the read-only endpoints can be accessed without authentication. But to make modification on the resources, an OAuth 2.0 access token should be provided.
@@ -20,7 +22,7 @@ Many popular mobile REST frameworks like [RestKit](https://github.com/RestKit/Re
 
 ### Usage limits
 
-Currently we do not apply any types of limits to this API's usage.
+Currently we do not apply any types of limits to this API's usage. However we reserve the right to refuse abusing requests.
 
 # Group Entries
 By **Entries API** you can access entries individually or by title, their votes, favourites. Also using these endpoint you can modify and delete entries and its related objects like votes and favourites.
@@ -119,7 +121,7 @@ A single User object with all its details
     + id (optional, number, `1`) ... Numeric `id` of the User to perform action with.
     + u (optional, string, `wondrous`) ... `Username` of the User to perform action with.
 
-### Retrieve an User [GET]
+### Retrieve a User [GET]
 + Response 200 (application/json)
 
        
