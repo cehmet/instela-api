@@ -124,5 +124,26 @@ A single User object with all its details
 ### Retrieve a User [GET]
 + Response 200 (application/json)
 
+# Group Links
+By **Links API** website owners can monitor how many times and in which posts their website content is shared on Instela.
+
+## Links by URL [/links{?url}]
+List all posts by a specific url. Instela can detect different URL's targeting the same canonical URL, therefore entries which include the same canonical URL's variations may be fetched. It's an important feature because sometimes two users share HTTP and HTTPS versions of the same URL in different posts. Results are cached for 10 minutes, so any automatized script should consider that during 10 minutes the new posts are not reflected to the results.
+
++ Parameters
+    + url (required, string, `https://www.youtube.com/watch?v=zroi-BgsIkE`) ... Url to search
+
+### Retrieve entries by URL [GET]
++ Response 200 (application/json)
+
+## Links by Domain [/links{?domain}]
+List all posts by a domain. Enter domain without www to see more accurate results.
+
++ Parameters
+    + domain (required, string, `youtube.com`) ... Domain to search
+
+### Retrieve entries by Domain [GET]
++ Response 200 (application/json)
+
        
 
